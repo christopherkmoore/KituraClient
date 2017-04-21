@@ -15,6 +15,13 @@ class ViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
+		downloadAPIData() { data, bool in
+			if bool {
+				DispatchQueue.main.async(execute: {
+					self.helloKituraLabel.text = data
+				})
+			}
+		}
 	}
 	
 	
